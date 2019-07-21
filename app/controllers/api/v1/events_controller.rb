@@ -8,4 +8,22 @@ class Api::V1::EventsController < ApplicationController
     render json: Event.find(params[:id])
   end
 
+  def create
+    render json: Event.create(event_params)
+  end
+
+  def update
+    render json: Event.update(params[:id], event_params)
+  end
+
+  def destroy
+    render json: Event.delete(params[:id])
+  end
+
+  private
+
+  def event_params
+    params.require(:event).permit(:title, :date, :event_notes)
+  end
+
 end
