@@ -26,7 +26,7 @@ describe 'Events API' do
   end
 
   it 'creates a new event' do
-    event_params = { title: "Happy Hour", date: "Tuesday, August 6, 2019", event_notes: "Meet at the bar at 5pm; hosted appetizers until 6pm. Fellowship and mingling with other alumni."}
+    event_params = { title: "Happy Hour", date: "Tuesday, August 6, 2019", event_notes: "Meet at the bar at 5pm; hosted appetizers until 6pm. Fellowship and mingling with other User."}
 
     post "/api/v1/events", params: {event: event_params}
     event = Event.last
