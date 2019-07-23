@@ -4,7 +4,7 @@ describe 'Users API' do
   it 'sends a list of users' do
     create_list(:user, 3)
 
-    get '/api/v1/user'
+    get '/api/v1/users'
 
     expect(response).to be_successful
 
@@ -16,7 +16,7 @@ describe 'Users API' do
   it 'gets a single user by its id' do
     id = create(:user).id
 
-    get "/api/v1/user/#{id}"
+    get "/api/v1/users/#{id}"
 
     expect(response).to be_successful
 
@@ -28,7 +28,7 @@ describe 'Users API' do
   it 'creates a new user' do
     user_params = { first_name: "Zahra", last_name: "Mahmud", email: "zmahmud@email.com", admin: false, role: "alumni", city: "Denver", state: "CO", country: "U.S.", cohort: "1701BE"}
 
-    post "/api/v1/user", params: {user: user_params}
+    post "/api/v1/users", params: {user: user_params}
     user = User.last
 
     expect(response).to be_successful
@@ -41,7 +41,7 @@ describe 'Users API' do
     previous_last_name = User.last.last_name
     user_params = { last_name: "Jones"}
 
-    put "/api/v1/user/#{id}", params: {user: user_params}
+    put "/api/v1/users/#{id}", params: {user: user_params}
     user = User.find_by(id: id)
 
     expect(response).to be_successful
@@ -52,7 +52,7 @@ describe 'Users API' do
   it 'destroys an user' do
     user = create(:user)
 
-    expect{ delete "/api/v1/user/#{user.id}" }.to change(user, :count).by(-1)
+    expect{ delete "/api/v1/users/#{user.id}" }.to change(User, :count).by(-1)
 
     expect(response).to be_successful
     expect{User.find(user.id)}.to raise_error(ActiveRecord::RecordNotFound)
