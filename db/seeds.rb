@@ -13,8 +13,8 @@
     email: Faker::Internet.email,
     admin: false,
     role: "alumni",
-    city: "Denver",
-    state: "CO",
+    city: Faker::Address.city,
+    state: Faker::Address.state,
     country: "U.S.",
     cohort: "#{rand(12..19)}#{rand(10..12)}"
   )
