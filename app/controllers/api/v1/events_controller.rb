@@ -9,7 +9,7 @@ class Api::V1::EventsController < ApplicationController
   end
 
   def create
-    render json: Event.create(event_params)
+    render json: EventSerializer.new(Event.create(event_params))
   end
 
   def update

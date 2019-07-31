@@ -10,7 +10,7 @@ describe 'Events API' do
 
     events = JSON.parse(response.body)
 
-    expect(events.count).to eq(3)
+    expect(events["data"].count).to eq(3)
   end
 
   it 'gets a single event by its id' do
@@ -21,8 +21,7 @@ describe 'Events API' do
     expect(response).to be_successful
 
     event = JSON.parse(response.body)
-
-    expect(event["id"]).to eq(id)
+    expect(event["data"]["attributes"]["id"]).to eq(id)
   end
 
   it 'creates a new event' do
@@ -30,7 +29,6 @@ describe 'Events API' do
 
     post "/api/v1/events", params: {event: event_params}
     event = Event.last
-
     expect(response).to be_successful
     expect(event.title).to eq("Happy Hour" && event_params[:title])
     expect(event.event_notes).to eq(event_params[:event_notes])
