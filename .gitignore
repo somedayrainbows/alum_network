@@ -21,3 +21,6 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore node modules in client
+/app/alum_network_client/node_modules
