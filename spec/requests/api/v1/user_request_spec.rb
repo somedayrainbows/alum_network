@@ -10,7 +10,7 @@ describe 'Users API' do
 
     user = JSON.parse(response.body)
 
-    expect(user.count).to eq(3)
+    expect(user["data"].count).to eq(3)
   end
 
   it 'gets a single user by its id' do
@@ -22,7 +22,7 @@ describe 'Users API' do
 
     user = JSON.parse(response.body)
 
-    expect(user["id"]).to eq(id)
+    expect(user["data"]["id"]).to eq(id.to_s)
   end
 
   it 'creates a new user' do

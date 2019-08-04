@@ -21,7 +21,7 @@ describe 'Events API' do
     expect(response).to be_successful
 
     event = JSON.parse(response.body)
-    expect(event["data"]["attributes"]["id"]).to eq(id)
+    expect(event["data"]["id"]).to eq(id.to_s)
   end
 
   it 'creates a new event' do
