@@ -49,7 +49,7 @@ describe 'Users API' do
     expect(user.last_name).to eq(user_params[:last_name])
   end
 
-  it 'destroys an user' do
+  it 'destroys a user' do
     user = create(:user)
 
     expect{ delete "/api/v1/users/#{user.id}" }.to change(User, :count).by(-1)
