@@ -1,24 +1,22 @@
-# README
+*Alum network setup - server and client*
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+You may need to install Ruby and/or update your Ruby version. Try installing RVM or rbenv to manage Ruby versions.
 
-Things you may want to cover:
+This project requires you to have:
+Ruby 2.4.1
 
-* Ruby version
+Clone down project to your local machine. In your terminal, run:
 
-* System dependencies
+`bundle install` (if you error out here, it’s likely due to an incompatible Ruby version)
+`rake db:create`
+`rake db:migrate`
+`rake db:seed`
 
-* Configuration
+`rspec` to run the test suite on the server
 
-* Database creation
+`rails s` to run server
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+in a second terminal tab:
+cd into client (`/app/alum_network_client`)
+`npm install`
+`npm start` to run client
